@@ -1,0 +1,60 @@
+.skill-tree {
+
+    &__bottom {
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: center;
+    }
+
+    &__section {
+        border: 2px solid black;
+        padding: 1rem;
+        margin: 0 auto;
+        &--top {
+            width: 50%;
+        }
+        &--bottom {
+            width: 33.33%;
+        }
+    }
+    &__row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+
+        &--justify-center {
+            justify-content: center;
+        }
+        &--justify-end {
+            justify-content: flex-end;
+        }
+    }
+    &__skill,
+    &__augment {
+        border: 1px solid black;
+        width: 50px;
+        height: 50px;
+        background-image: url(../img/icon-bg.webp);
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+
+        &--blank {
+            visibility: hidden;
+        }
+    }
+    &__augment {
+        transform: rotate(45deg);
+
+        img {
+            transform: rotate(-45deg);
+            border-radius: 50%;
+        }
+    }
+    &__skill-img {
+        max-width: 100%;
+        width: 100%;
+    }
+}

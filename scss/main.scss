@@ -1,3 +1,14 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+body {
+    padding: 3rem;
+}
+
 .skill-tree {
 
     &__bottom {
@@ -33,16 +44,31 @@
     }
     &__skill,
     &__augment {
-        border: 1px solid black;
         width: 50px;
         height: 50px;
         background-image: url(../img/icon-bg.webp);
         background-position: center;
         background-size: cover;
         background-repeat: no-repeat;
+        position: relative;
 
         &--blank {
             visibility: hidden;
+        }
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+    &__skill {
+        &:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            border-top: 15px solid white;
+            border-left: 15px solid black;
+            width: 0;
         }
     }
     &__augment {
@@ -51,6 +77,15 @@
         img {
             transform: rotate(-45deg);
             border-radius: 50%;
+
+            // &:before {
+            //     content: '';
+            //     position: absolute;
+            //     top: 0; right: 0;
+            //     border-top: 80px solid white;
+            //     border-left: 80px solid red;
+            //     width: 0;
+            // }
         }
     }
     &__skill-img {
@@ -60,5 +95,20 @@
 }
 
 .skill-box {
-    
+    padding: 1rem;
+    background-color: black;
+    color: white;
+    display: none;
+}
+
+.keyword {
+    &--orange {
+        color: orange;
+    }
+    &--blue {
+        color: lightblue;
+    }
+    &--green {
+        color: green;
+    }
 }

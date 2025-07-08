@@ -16,11 +16,13 @@ body {
 }
 .skill-tree__section {
   border: 2px solid black;
-  padding: 1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
   margin: 0 auto;
 }
 .skill-tree__section--top {
   width: 50%;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgb(87, 199, 133) 0%, rgb(255, 255, 255) 0%);
 }
 .skill-tree__section--bottom {
   width: 33.33%;
@@ -73,12 +75,25 @@ body {
   max-width: 100%;
   width: 100%;
 }
+.skill-tree__number-box {
+  position: absolute;
+  left: 50%;
+  bottom: -7.5px;
+  transform: translateX(-50%);
+  background-color: black;
+  color: white;
+  font-size: 14px;
+  padding: 0.25rem;
+}
 
 .skill-box {
   padding: 1rem;
   background-color: black;
   color: white;
   display: none;
+}
+.skill-box__bonus-name {
+  color: lightblue;
 }
 
 .keyword--orange {

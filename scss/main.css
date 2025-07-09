@@ -7,6 +7,9 @@
 
 body {
   padding: 3rem;
+  background: #000;
+  background: linear-gradient(180deg, rgb(0, 0, 0) 0%, rgb(0, 58, 71) 100%);
+  margin-bottom: 100px;
 }
 
 .skill-tree__bottom {
@@ -15,14 +18,14 @@ body {
   justify-content: center;
 }
 .skill-tree__section {
-  border: 2px solid black;
+  border: 2px solid gray;
   padding-left: 1rem;
   padding-right: 1rem;
   margin: 0 auto;
 }
 .skill-tree__section--top {
   width: 50%;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgb(87, 199, 133) 0%, rgb(255, 255, 255) 0%);
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(87, 199, 133, 0.5) 0%, transparent 0%);
 }
 .skill-tree__section--bottom {
   width: 33.33%;
@@ -40,19 +43,20 @@ body {
 .skill-tree__row--justify-end {
   justify-content: flex-end;
 }
-.skill-tree__skill, .skill-tree__augment {
+.skill-tree__skill, .skill-tree__augment, .skill-tree__capstone {
   width: 50px;
   height: 50px;
+  border: 1px solid gray;
   background-image: url(../img/icon-bg.webp);
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
   position: relative;
 }
-.skill-tree__skill--blank, .skill-tree__augment--blank {
+.skill-tree__skill--blank, .skill-tree__augment--blank, .skill-tree__capstone--blank {
   visibility: hidden;
 }
-.skill-tree__skill:hover, .skill-tree__augment:hover {
+.skill-tree__skill:hover, .skill-tree__augment:hover, .skill-tree__capstone:hover {
   cursor: pointer;
 }
 .skill-tree__skill:before {
@@ -71,6 +75,9 @@ body {
   transform: rotate(-45deg);
   border-radius: 50%;
 }
+.skill-tree__capstone {
+  background-image: url(../img/capstone-bg.webp);
+}
 .skill-tree__skill-img {
   max-width: 100%;
   width: 100%;
@@ -78,7 +85,7 @@ body {
 .skill-tree__number-box {
   position: absolute;
   left: 50%;
-  bottom: -7.5px;
+  bottom: -10px;
   transform: translateX(-50%);
   background-color: black;
   color: white;
@@ -88,11 +95,32 @@ body {
 
 .skill-box {
   padding: 1rem;
-  background-color: black;
+  margin-top: 1rem;
+  background-color: #000c17;
+  border: 1px solid lightblue;
   color: white;
-  display: none;
+  visibility: hidden;
+}
+.skill-box__type {
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem;
+  color: lightblue;
+  font-size: 18px;
+}
+.skill-box__bonus-box {
+  margin-top: 1rem;
 }
 .skill-box__bonus-name {
+  color: lightblue;
+}
+.skill-box hr {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border-color: lightblue;
+}
+.skill-box__flavor-text {
+  font-style: italic;
+  margin-top: 1rem;
   color: lightblue;
 }
 
@@ -102,6 +130,27 @@ body {
 .keyword--blue {
   color: lightblue;
 }
+.keyword--dark-blue {
+  color: blue;
+}
 .keyword--green {
   color: green;
+}
+.keyword--red {
+  color: red;
+}
+
+.alert-box {
+  visibility: hidden;
+  background-color: #811331;
+  color: red;
+  font-weight: bold;
+  border-left: 2px dotted red;
+  border-right: 2px dotted red;
+  padding: 0.5rem 1rem;
+  width: auto;
+}
+
+.skill-points {
+  color: white;
 }/*# sourceMappingURL=main.css.map */

@@ -7,6 +7,9 @@
 
 body {
     padding: 3rem;
+    background: #000;
+    background: linear-gradient(180deg,rgba(0, 0, 0, 1) 0%, rgba(0, 58, 71, 1) 100%);
+    margin-bottom: 100px;
 }
 
 .skill-tree {
@@ -18,13 +21,13 @@ body {
     }
 
     &__section {
-        border: 2px solid black;
+        border: 2px solid gray;
         padding-left: 1rem;
         padding-right: 1rem;
         margin: 0 auto;
         &--top {
             width: 50%;
-            background: linear-gradient(180deg,rgba(0, 0, 0, 0) 0%, rgba(87, 199, 133, 1) 0%, rgba(255, 255, 255, 1) 0%);
+            background: linear-gradient(180deg,rgba(0, 0, 0, 0) 0%, rgba(87, 199, 133, .5) 0%, transparent 0%);
         }
         &--bottom {
             width: 33.33%;
@@ -45,9 +48,11 @@ body {
         }
     }
     &__skill,
-    &__augment {
+    &__augment,
+    &__capstone {
         width: 50px;
         height: 50px;
+        border: 1px solid gray;
         background-image: url(../img/icon-bg.webp);
         background-position: center;
         background-size: cover;
@@ -81,6 +86,9 @@ body {
             border-radius: 50%;
         }
     }
+    &__capstone {
+        background-image: url(../img/capstone-bg.webp);
+    }
     &__skill-img {
         max-width: 100%;
         width: 100%;
@@ -88,7 +96,7 @@ body {
     &__number-box {
         position: absolute;
         left: 50%;
-        bottom: -7.5px;
+        bottom: -10px;
         transform: translateX(-50%);
         background-color: black;
         color: white;
@@ -99,11 +107,36 @@ body {
 
 .skill-box {
     padding: 1rem;
-    background-color: black;
+    margin-top: 1rem;
+    background-color: #000c17;
+    border: 1px solid lightblue;
     color: white;
-    display: none;
+    visibility: hidden;
+
+    &__type {
+        margin-top: .25rem;
+        margin-bottom: .25rem;
+        color: lightblue;
+        font-size: 18px;
+    }
+
+    &__bonus-box {
+        margin-top: 1rem;
+    }
 
     &__bonus-name {
+        color: lightblue;
+    }
+
+    hr {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        border-color: lightblue;
+    }
+
+    &__flavor-text {
+        font-style: italic;
+        margin-top: 1rem;
         color: lightblue;
     }
 }
@@ -115,7 +148,28 @@ body {
     &--blue {
         color: lightblue;
     }
+    &--dark-blue {
+        color: blue;
+    }
     &--green {
         color: green;
     }
+    &--red {
+        color: red;
+    }
+}
+
+.alert-box {
+    visibility: hidden;
+    background-color: #811331;
+    color: red;
+    font-weight: bold;
+    border-left: 2px dotted red;
+    border-right: 2px dotted red;
+    padding: .5rem 1rem;
+    width: auto;
+}
+
+.skill-points {
+    color: white;
 }

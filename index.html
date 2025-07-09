@@ -11,6 +11,7 @@
         <div class="skill-points">
             <span class="skill-points__used"></span>/<span class="skill-points__max"></span>
         </div>
+        <button class="js_reset">Reset Skill Tree</button>
         <div class="skill-tree__section skill-tree__section--top" data-max="15">
             <div class="skill-tree__row">
                 <div class="skill-tree__skill" data-name="Handshake Deal">
@@ -89,106 +90,158 @@
         <div class="skill-tree__bottom">
             <div class="skill-tree__section skill-tree__section--bottom">
                 <div class="skill-tree__row">
-                    <div class="skill-tree__skill">
-                        <img class="skill-tree__skill-img" src="./img/icon.webp" alt="">
+                    <div class="skill-tree__skill" data-name="Blowout">
+                        <img class="skill-tree__skill-img" src="./img/skill_blowout.webp" alt="">
+                        <div class="skill-tree__number-box">
+                            <span class="skill-tree__number">0</span>/5
+                        </div>
                     </div>
-                    <div class="skill-tree__augment">
-                        <img class="skill-tree__skill-img" src="./img/icon.webp" alt="">
+                    <div class="skill-tree__augment" data-name="Thundercutter">
+                        <img class="skill-tree__skill-img" src="./img/augment_thundercutter.webp" alt="">
                     </div>
-                    <div class="skill-tree__skill">
-                        <img class="skill-tree__skill-img" src="./img/icon.webp" alt="">
-                    </div>
-                </div>
-                <div class="skill-tree__row">
-                    <div class="skill-tree__skill skill-tree__skill--blank"></div>
-                    <div class="skill-tree__skill">
-                        <img class="skill-tree__skill-img" src="./img/icon.webp" alt="">
-                    </div>
-                    <div class="skill-tree__skill skill-tree__skill--blank"></div>
-                </div>
-                <div class="skill-tree__row">
-                    <div class="skill-tree__skill">
-                        <img class="skill-tree__skill-img" src="./img/icon.webp" alt="">
-                    </div>
-                    <div class="skill-tree__augment">
-                        <img class="skill-tree__skill-img" src="./img/icon.webp" alt="">
-                    </div>
-                    <div class="skill-tree__skill">
-                        <img class="skill-tree__skill-img" src="./img/icon.webp" alt="">
-                    </div>
-                </div>
-            </div>
-            <div class="skill-tree__section skill-tree__section--bottom">
-                <div class="skill-tree__row">
-                    <div class="skill-tree__skill">
-                        <img class="skill-tree__skill-img" src="./img/icon.webp" alt="">
-                    </div>
-                    <div class="skill-tree__augment">
-                        <img class="skill-tree__skill-img" src="./img/icon.webp" alt="">
-                    </div>
-                    <div class="skill-tree__skill">
-                        <img class="skill-tree__skill-img" src="./img/icon.webp" alt="">
+                    <div class="skill-tree__skill" data-name="El Paraguas">
+                        <img class="skill-tree__skill-img" src="./img/skill_el-paraguas.webp" alt="">
+                        <div class="skill-tree__number-box">
+                            <span class="skill-tree__number">0</span>/5
+                        </div>
                     </div>
                 </div>
                 <div class="skill-tree__row">
                     <div class="skill-tree__skill skill-tree__skill--blank"></div>
-                    <div class="skill-tree__skill">
-                        <img class="skill-tree__skill-img" src="./img/icon.webp" alt="">
+                    <div class="skill-tree__skill" data-name="Protecto-Pulse">
+                        <img class="skill-tree__skill-img" src="./img/skill_protecto-pulse.webp" alt="">
+                        <div class="skill-tree__number-box">
+                            <span class="skill-tree__number">0</span>/5
+                        </div>
                     </div>
-                    <div class="skill-tree__skill">
-                        <img class="skill-tree__skill-img" src="./img/icon.webp" alt="">
+                    <div class="skill-tree__skill" data-name="Shock Market">
+                        <img class="skill-tree__skill-img" src="./img/skill_shock-market.webp" alt="">
+                        <div class="skill-tree__number-box">
+                            <span class="skill-tree__number">0</span>/5
+                        </div>
                     </div>
                 </div>
                 <div class="skill-tree__row">
-                    <div class="skill-tree__skill">
-                        <img class="skill-tree__skill-img" src="./img/icon.webp" alt="">
+                    <div class="skill-tree__skill" data-name="Liquidation">
+                        <img class="skill-tree__skill-img" src="./img/skill_liquidation.webp" alt="">
+                        <div class="skill-tree__number-box">
+                            <span class="skill-tree__number">0</span>/1
+                        </div>
                     </div>
-                    <div class="skill-tree__augment">
-                        <img class="skill-tree__skill-img" src="./img/icon.webp" alt="">
+                    <div class="skill-tree__capstone" data-name="Huracan Especial">
+                        <img class="skill-tree__skill-img" src="./img/capstone_huracan-especial.webp" alt="">
                     </div>
                     <div class="skill-tree__skill skill-tree__skill--blank"></div>
                 </div>
             </div>
             <div class="skill-tree__section skill-tree__section--bottom">
                 <div class="skill-tree__row">
-                    <div class="skill-tree__skill">
-                        <img class="skill-tree__skill-img" src="./img/icon.webp" alt="">
+                    <div class="skill-tree__skill" data-name="Artilleria">
+                        <img class="skill-tree__skill-img" src="./img/skill_artilleria.webp" alt="">
+                        <div class="skill-tree__number-box">
+                            <span class="skill-tree__number">0</span>/5
+                        </div>
                     </div>
-                    <div class="skill-tree__augment">
-                        <img class="skill-tree__skill-img" src="./img/icon.webp" alt="">
+                    <div class="skill-tree__augment" data-name="Parting Gift">
+                        <img class="skill-tree__skill-img" src="./img/augment_parting-gift.webp" alt="">
                     </div>
-                    <div class="skill-tree__skill">
-                        <img class="skill-tree__skill-img" src="./img/icon.webp" alt="">
-                    </div>
-                </div>
-                <div class="skill-tree__row">
-                    <div class="skill-tree__skill">
-                        <img class="skill-tree__skill-img" src="./img/icon.webp" alt="">
-                    </div>
-                    <div class="skill-tree__skill skill-tree__skill--blank"></div>
-                    <div class="skill-tree__skill">
-                        <img class="skill-tree__skill-img" src="./img/icon.webp" alt="">
+                    <div class="skill-tree__skill" data-name="Collaborate Ignition">
+                        <img class="skill-tree__skill-img" src="./img/skill_collaborate-ignition.webp" alt="">
+                        <div class="skill-tree__number-box">
+                            <span class="skill-tree__number">0</span>/5
+                        </div>
                     </div>
                 </div>
                 <div class="skill-tree__row">
-                    <div class="skill-tree__skill skill-tree__skill--blank"></div>
-                    <div class="skill-tree__augment">
-                        <img class="skill-tree__skill-img" src="./img/icon.webp" alt="">
+                    <div class="skill-tree__skill" data-name="Booming Business">
+                        <img class="skill-tree__skill-img" src="./img/skill_booming-business.webp" alt="">
+                        <div class="skill-tree__number-box">
+                            <span class="skill-tree__number">0</span>/5
+                        </div>
                     </div>
-                    <div class="skill-tree__skill">
-                        <img class="skill-tree__skill-img" src="./img/icon.webp" alt="">
+                    <div class="skill-tree__skill skill-tree__skill--blank"></div>
+                    <div class="skill-tree__skill" data-name="Sinergia">
+                        <img class="skill-tree__skill-img" src="./img/skill_sinergia.webp" alt="">
+                        <div class="skill-tree__number-box">
+                            <span class="skill-tree__number">0</span>/3
+                        </div>
+                    </div>
+                </div>
+                <div class="skill-tree__row">
+                    <div class="skill-tree__skill" data-name="Hemolitions">
+                        <img class="skill-tree__skill-img" src="./img/skill_hemolitions.webp" alt="">
+                        <div class="skill-tree__number-box">
+                            <span class="skill-tree__number">0</span>/1
+                        </div>
+                    </div>
+                    <div class="skill-tree__capstone" data-name="Inferno Protocol">
+                        <img class="skill-tree__skill-img" src="./img/capstone_inferno-protocol.webp" alt="">
+                    </div>
+                    <div class="skill-tree__skill" data-name="El Diablito">
+                        <img class="skill-tree__skill-img" src="./img/skill_el-diablito.webp" alt="">
+                        <div class="skill-tree__number-box">
+                            <span class="skill-tree__number">0</span>/5
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="skill-tree__section skill-tree__section--bottom">
+                <div class="skill-tree__row">
+                    <div class="skill-tree__skill" data-name="El Borracho">
+                        <img class="skill-tree__skill-img" src="./img/skill_el-borracho.webp" alt="">
+                        <div class="skill-tree__number-box">
+                            <span class="skill-tree__number">0</span>/5
+                        </div>
+                    </div>
+                    <div class="skill-tree__augment" data-name="Acid Drop">
+                        <img class="skill-tree__skill-img" src="./img/augment_acid-drop.webp" alt="">
+                    </div>
+                    <div class="skill-tree__skill" data-name="Empuje">
+                        <img class="skill-tree__skill-img" src="./img/skill_empuje.webp" alt="">
+                        <div class="skill-tree__number-box">
+                            <span class="skill-tree__number">0</span>/5
+                        </div>
+                    </div>
+                </div>
+                <div class="skill-tree__row">
+                    <div class="skill-tree__skill" data-name="Sustainable Energy">
+                        <img class="skill-tree__skill-img" src="./img/skill_sustainable-energy.webp" alt="">
+                        <div class="skill-tree__number-box">
+                            <span class="skill-tree__number">0</span>/5
+                        </div>
+                    </div>
+                    <div class="skill-tree__skill" data-name="Motivar">
+                        <img class="skill-tree__skill-img" src="./img/skill_motivar.webp" alt="">
+                        <div class="skill-tree__number-box">
+                            <span class="skill-tree__number">0</span>/5
+                        </div>
+                    </div>
+                    <div class="skill-tree__skill skill-tree__skill--blank"></div>
+                </div>
+                <div class="skill-tree__row">
+                    <div class="skill-tree__skill skill-tree__skill--blank"></div>
+                    <div class="skill-tree__capstone" data-name="Galvanic Panic">
+                        <img class="skill-tree__skill-img" src="./img/capstone_galvanic-panic.webp" alt="">
+                    </div>
+                    <div class="skill-tree__skill" data-name="Cruel Accrual">
+                        <img class="skill-tree__skill-img" src="./img/skill_cruel-accrual.webp" alt="">
+                        <div class="skill-tree__number-box">
+                            <span class="skill-tree__number">0</span>/5
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <!-- <div class="alert-box">Requires X Points in Branch</div> -->
     <div class="skill-box">
         <h2 class="skill-box__name"></h2>
         <p class="skill-box__type"></p>
-        <p><span class="skill-box__filled"></span>/<span class="skill-box__max"></span></p>
+        <p class="skill-box__stat-box"><span class="skill-box__filled"></span> / <span class="skill-box__max"></span></p>
         <hr>
         <p class="skill-box__text"></p>
-        <p><span class="skill-box__bonus-name"></span>: <span class="skill-box__bonus-number"></span></p>
+        <p class="skill-box__bonus-box"><span class="skill-box__bonus-name"></span>: <span class="skill-box__bonus-number"></span></p>
+        <p class="skill-box__flavor-text"></p>
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

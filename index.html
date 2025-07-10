@@ -10,9 +10,13 @@
     <div class="skill-tree">
         <div class="skill-points">
             <span class="skill-points__used"></span>/<span class="skill-points__max"></span>
+            <div class="skill-points__top" data-id="1"></div>
+            <div class="skill-points__bottom" data-id="2"></div>
+            <div class="skill-points__bottom" data-id="3"></div>
+            <div class="skill-points__bottom" data-id="4"></div>
         </div>
         <button class="js_reset">Reset Skill Tree</button>
-        <div class="skill-tree__section skill-tree__section--top js_top-tree" data-max="15">
+        <div class="skill-tree__section skill-tree__section--top js_top-tree" data-max="15" data-id="1" data-skill-number="0">
             <div class="skill-tree__row js_row" data-required="0">
                 <div class="skill-tree__skill" data-name="Handshake Deal">
                     <img class="skill-tree__skill-img" src="./img/skill_handshake-deal.webp" alt="">
@@ -88,8 +92,8 @@
             </div>
         </div>
         <div class="skill-tree__bottom">
-            <div class="skill-tree__section skill-tree__section--bottom js_bottom-tree">
-                <div class="skill-tree__row js_row" data-required="0" data-id="1">
+            <div class="skill-tree__section skill-tree__section--bottom js_bottom-tree" data-max="15" data-id="2" data-skill-number="0">
+                <div class="skill-tree__row js_row" data-required="0" data-id="2" data-first-row="true">
                     <div class="skill-tree__skill" data-name="Blowout">
                         <img class="skill-tree__skill-img" src="./img/skill_blowout.webp" alt="">
                         <div class="skill-tree__number-box">
@@ -106,7 +110,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="skill-tree__row js_row" data-required="5" data-id="1">
+                <div class="skill-tree__row js_row" data-required="5" data-id="2">
                     <div class="skill-tree__skill skill-tree__skill--blank"></div>
                     <div class="skill-tree__skill" data-name="Protecto-Pulse">
                         <img class="skill-tree__skill-img" src="./img/skill_protecto-pulse.webp" alt="">
@@ -121,7 +125,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="skill-tree__row js_row" data-required="10" data-id="1">
+                <div class="skill-tree__row js_row" data-required="10" data-id="2">
                     <div class="skill-tree__skill" data-name="Liquidation">
                         <img class="skill-tree__skill-img" src="./img/skill_liquidation.webp" alt="">
                         <div class="skill-tree__number-box">
@@ -134,8 +138,8 @@
                     <div class="skill-tree__skill skill-tree__skill--blank"></div>
                 </div>
             </div>
-            <div class="skill-tree__section skill-tree__section--bottom js_bottom-tree">
-                <div class="skill-tree__row js_row" data-required="0" data-id="2">
+            <div class="skill-tree__section skill-tree__section--bottom js_bottom-tree" data-max="15" data-id="3" data-skill-number="0">
+                <div class="skill-tree__row js_row" data-required="0" data-id="3" data-first-row="true">
                     <div class="skill-tree__skill" data-name="Artilleria">
                         <img class="skill-tree__skill-img" src="./img/skill_artilleria.webp" alt="">
                         <div class="skill-tree__number-box">
@@ -152,7 +156,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="skill-tree__row js_row" data-required="5" data-id="2">
+                <div class="skill-tree__row js_row" data-required="5" data-id="3">
                     <div class="skill-tree__skill" data-name="Booming Business">
                         <img class="skill-tree__skill-img" src="./img/skill_booming-business.webp" alt="">
                         <div class="skill-tree__number-box">
@@ -167,7 +171,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="skill-tree__row js_row" data-required="10" data-id="2">
+                <div class="skill-tree__row js_row" data-required="10" data-id="3">
                     <div class="skill-tree__skill" data-name="Hemolitions">
                         <img class="skill-tree__skill-img" src="./img/skill_hemolitions.webp" alt="">
                         <div class="skill-tree__number-box">
@@ -185,8 +189,8 @@
                     </div>
                 </div>
             </div>
-            <div class="skill-tree__section skill-tree__section--bottom js_bottom-tree">
-                <div class="skill-tree__row js_row" data-required="0" data-id="3">
+            <div class="skill-tree__section skill-tree__section--bottom js_bottom-tree" data-max="15" data-id="4" data-skill-number="0">
+                <div class="skill-tree__row js_row" data-required="0" data-id="4" data-first-row="true">
                     <div class="skill-tree__skill" data-name="El Borracho">
                         <img class="skill-tree__skill-img" src="./img/skill_el-borracho.webp" alt="">
                         <div class="skill-tree__number-box">
@@ -203,7 +207,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="skill-tree__row js_row" data-required="5" data-id="3">
+                <div class="skill-tree__row js_row" data-required="5" data-id="4">
                     <div class="skill-tree__skill" data-name="Sustainable Energy">
                         <img class="skill-tree__skill-img" src="./img/skill_sustainable-energy.webp" alt="">
                         <div class="skill-tree__number-box">
@@ -218,7 +222,7 @@
                     </div>
                     <div class="skill-tree__skill skill-tree__skill--blank"></div>
                 </div>
-                <div class="skill-tree__row js_row" data-required="10" data-id="3">
+                <div class="skill-tree__row js_row" data-required="10" data-id="4">
                     <div class="skill-tree__skill skill-tree__skill--blank"></div>
                     <div class="skill-tree__capstone" data-name="Galvanic Panic">
                         <img class="skill-tree__skill-img" src="./img/capstone_galvanic-panic.webp" alt="">

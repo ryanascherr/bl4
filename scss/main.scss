@@ -25,9 +25,9 @@ body {
         padding-left: 1rem;
         padding-right: 1rem;
         margin: 0 auto;
+        background: linear-gradient(180deg,rgba(0, 0, 0, 0) 0%, rgba(87, 199, 133, .5) 0%, transparent 0%);
         &--top {
             width: 50%;
-            background: linear-gradient(180deg,rgba(0, 0, 0, 0) 0%, rgba(87, 199, 133, .5) 0%, transparent 0%);
         }
         &--bottom {
             width: 33.33%;
@@ -37,8 +37,8 @@ body {
         display: flex;
         justify-content: center;
         align-items: center;
-        margin-top: 1rem;
-        margin-bottom: 1rem;
+        margin-top: .25rem;
+        margin-bottom: .25rem;
 
         &--justify-center {
             justify-content: center;
@@ -93,6 +93,10 @@ body {
     &__skill-img {
         max-width: 100%;
         width: 100%;
+
+        &--colored {
+            mix-blend-mode: screen;
+        }
     }
     &__number-box {
         position: absolute;

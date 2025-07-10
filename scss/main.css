@@ -22,10 +22,10 @@ body {
   padding-left: 1rem;
   padding-right: 1rem;
   margin: 0 auto;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(87, 199, 133, 0.5) 0%, transparent 0%);
 }
 .skill-tree__section--top {
   width: 50%;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(87, 199, 133, 0.5) 0%, transparent 0%);
 }
 .skill-tree__section--bottom {
   width: 33.33%;
@@ -34,8 +34,8 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem;
 }
 .skill-tree__row--justify-center {
   justify-content: center;
@@ -73,6 +73,9 @@ body {
 .skill-tree__skill-img {
   max-width: 100%;
   width: 100%;
+}
+.skill-tree__skill-img--colored {
+  mix-blend-mode: screen;
 }
 .skill-tree__number-box {
   position: absolute;

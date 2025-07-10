@@ -264,21 +264,30 @@ let rafaSkills = [
     }
 ]
 
-let maxSkillPoints = 30;
+let maxSkillPoints = 50;
 let currentSkillPoints = 0;
 let topTreePoints = 0;
 let bottomTreeOnePoints = 0;
 let bottomTreeTwoPoints = 0;
 let bottomTreeThreePoints = 0;
 
+checkAvailability();
+
 document.querySelector(".js_reset").addEventListener('click', function() {
     let allSkillNumbers = document.querySelectorAll(".skill-tree__number");
     allSkillNumbers.forEach(function(skill, index) {
         skill.textContent = 0;
         currentSkillPoints = 0;
-        updateGradient();
-        displaySkillPoints();
     });
+
+    let allSkillTreeSections = document.querySelectorAll(".skill-tree__section");
+    allSkillTreeSections.forEach(function(section, index) {
+        section.dataset.skillNumber = 0;
+        section.style.background = `linear-gradient(180deg,rgba(0, 0, 0, 0) 0%, rgba(87, 199, 133, .5) 0%, transparent 0%)`;
+    });
+
+    displaySkillPoints();
+    checkAvailability();
 });
 
 displaySkillPoints();
@@ -339,6 +348,7 @@ skills.forEach((skill, index) => {
             }
         }
 
+        checkAvailability();
     });
 
     skill.addEventListener('contextmenu', function(e) {
@@ -357,6 +367,7 @@ skills.forEach((skill, index) => {
             }
         }
 
+        checkAvailability();
     });
 });
 
@@ -397,80 +408,117 @@ function hideToolTip() {
     document.querySelector(".skill-box").style.visibility = "hidden";
 }
 
-function addSkillPoint(skill, childElement) {
+function updateSkillPoints(skill, childElement, number) {
     let filled = skill.filled;
     let max = skill.max;
     let isAllowed = true;
+
+    let section = childElement.closest(".skill-tree__section");
+    let skillsInTree = parseInt(section.dataset.skillNumber);
 
     let isTopTree = childElement.closest(".js_top-tree") ? true : false;
     let rowParent = childElement.closest(".js_row");
     let skillRequirement = parseInt(rowParent.dataset.required);
 
-    if (isTopTree) {
-        if (topTreePoints < skillRequirement) {
-            isAllowed = false;
-        } else {
-            topTreePoints++;
-        }
+    if (skillsInTree < skillRequirement) {
+        isAllowed = false;
+    }
+}
+
+function addSkillPoint(skill, childElement) {
+    let filled = skill.filled;
+    let max = skill.max;
+    let isAllowed = true;
+
+    let section = childElement.closest(".skill-tree__section");
+    let skillsInTree = parseInt(section.dataset.skillNumber);
+
+    let rowParent = childElement.closest(".js_row");
+    let skillRequirement = parseInt(rowParent.dataset.required);
+
+    let isFirstRow = rowParent.dataset.firstRow == "true" ? true : false;
+
+    if (skillsInTree < skillRequirement) {
+        isAllowed = false;
     }
 
-    if (!isTopTree) {
-
-        let id = parseInt(rowParent.dataset.id);
-        if (id === 1) {
-            if (topTreePoints < 15 || bottomTreeOnePoints < skillRequirement) {
-                isAllowed = false;
-            } else {
-                bottomTreeOnePoints++;
-            }
-        }
-
-        if (id === 2) {
-            if (topTreePoints < 15 || bottomTreeTwoPoints < skillRequirement) {
-                isAllowed = false;
-            } else {
-                bottomTreeTwoPoints++;
-            }
-        }
-
-        if (id === 3) {
-            if (topTreePoints < 15 || bottomTreeThreePoints < skillRequirement) {
-                isAllowed = false;
-            } else {
-                bottomTreeThreePoints++;
-            }
-        }
-
-    }
+    if (isFirstRow && currentSkillPoints < 15) {
+        isAllowed = false;
+    }   
 
     if (filled === max || currentSkillPoints === maxSkillPoints || !isAllowed) return;
+
+    skillsInTree++;
+    section.dataset.skillNumber = skillsInTree;
 
     skill.filled++;
     childElement.textContent = skill.filled;
     displayToolTip(skill);
     currentSkillPoints++;
     displaySkillPoints();
-    updateGradient();
+    updateGradient(section);
 }
 
 function subtractSkillPoint(skill, childElement) {
     let filled = skill.filled;
 
+    let section = childElement.closest(".skill-tree__section");
+    let skillsInTree = parseInt(section.dataset.skillNumber);
+
+    let rowParent = childElement.closest(".js_row");
+    let skillRequirement = parseInt(rowParent.dataset.required);
+
+    let isFirstRow = rowParent.dataset.firstRow == "true" ? true : false;
+
+    if (skillsInTree < skillRequirement) {
+        isAllowed = false;
+    }
+
+    if (isFirstRow && currentSkillPoints < 15) {
+        isAllowed = false;
+    }   
+
     if (filled === 0 || currentSkillPoints === 0) return;
+
+    skillsInTree--;
+    section.dataset.skillNumber = skillsInTree;
 
     skill.filled--;
     childElement.textContent = skill.filled;
     displayToolTip(skill);
     currentSkillPoints--;
     displaySkillPoints();
-    updateGradient();
+    updateGradient(section);
 }
 
-function updateGradient() {
-    let max = parseInt(document.querySelector(".skill-tree__section--top").dataset.max);
-    let percent = (currentSkillPoints / max) * 100;
+function updateGradient(section) {
+    let max = parseInt(section.dataset.max);
+    let current = parseInt(section.dataset.skillNumber);
+    let percent = (current / max) * 100;
     if (percent > 100) {
         percent = 100;
     }
-    document.querySelector(".skill-tree__section--top").style.background = `linear-gradient(180deg,rgba(0, 0, 0, 0) ${percent/10}%, rgba(87, 199, 133, .5) ${percent}%, transparent ${percent}%)`;
+    section.style.background = `linear-gradient(180deg,rgba(0, 0, 0, 0) ${percent/10}%, rgba(87, 199, 133, .5) ${percent}%, transparent ${percent}%)`;
+}
+
+function checkAvailability() {
+    let skillImages = document.querySelectorAll(".skill-tree__skill-img");
+
+    skillImages.forEach((image) => {
+        let section = image.closest(".skill-tree__section");
+        let skillsInTree = parseInt(section.dataset.skillNumber);
+        let rowParent = image.closest(".js_row");
+        let skillRequirement = parseInt(rowParent.dataset.required);
+        let canColor = true;
+        let isFirstRow = rowParent.dataset.firstRow == "true" ? true : false;
+        if (isFirstRow && currentSkillPoints < 15) {
+            canColor = false;
+        }
+
+        if (skillsInTree >= skillRequirement && canColor) {
+            image.classList.add("skill-tree__skill-img--colored");
+        } else {
+            image.classList.remove("skill-tree__skill-img--colored");
+        }
+    });
 }

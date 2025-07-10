@@ -266,6 +266,10 @@ let rafaSkills = [
 
 let maxSkillPoints = 30;
 let currentSkillPoints = 0;
+let topTreePoints = 0;
+let bottomTreeOnePoints = 0;
+let bottomTreeTwoPoints = 0;
+let bottomTreeThreePoints = 0;
 
 document.querySelector(".js_reset").addEventListener('click', function() {
     let allSkillNumbers = document.querySelectorAll(".skill-tree__number");
@@ -286,8 +290,26 @@ function displaySkillPoints() {
 let skills = document.querySelectorAll(".skill-tree__skill, .skill-tree__augment, .skill-tree__capstone");
 
 skills.forEach((skill, index) => {
-    skill.addEventListener('mouseenter', () => {
+    skill.addEventListener('mouseenter', (e) => {
         let skillName = skill.dataset.name;
+
+    //     let hoveredElement = e.target;
+    //     let newElement = document.createElement('div');
+    //     newElement.innerHTML = `<div class="skill-box">
+    //     <h2 class="skill-box__name"></h2>
+    //     <p class="skill-box__type"></p>
+    //     <p class="skill-box__stat-box"><span class="skill-box__filled"></span> / <span class="skill-box__max"></span></p>
+    //     <hr>
+    //     <p class="skill-box__text"></p>
+    //     <p class="skill-box__bonus-box"><span class="skill-box__bonus-name"></span>: <span class="skill-box__bonus-number"></span></p>
+    //     <p class="skill-box__flavor-text"></p>
+    // </div>`;
+    //     hoveredElement.append(newElement);
+    //     newElement.style.position = "absolute";
+    //     newElement.style.top = "0";
+    //     newElement.style.left = "120%";
+    //     newElement.style.width = "400px";
+    //     newElement.style.zIndex = "100";
 
         for (let i = 0; i < rafaSkills.length; i++) {
             let skill = rafaSkills[i];
@@ -339,10 +361,11 @@ skills.forEach((skill, index) => {
 });
 
 function displayToolTip(skill) {
+
     document.querySelector(".skill-box__name").innerHTML = skill.name;
     document.querySelector(".skill-box__type").innerHTML = skill.type;
 
-    if (typeof skill.filled === 'number' && typeof skill.max === 'number') {
+    if (skill.type === "Passive") {
         document.querySelector(".skill-box__stat-box").style.display = "block";
         document.querySelector(".skill-box__filled").innerHTML = skill.filled;
         document.querySelector(".skill-box__max").innerHTML = skill.max;
@@ -377,8 +400,50 @@ function hideToolTip() {
 function addSkillPoint(skill, childElement) {
     let filled = skill.filled;
     let max = skill.max;
+    let isAllowed = true;
 
-    if (filled === max || currentSkillPoints === maxSkillPoints) return;
+    let isTopTree = childElement.closest(".js_top-tree") ? true : false;
+    let rowParent = childElement.closest(".js_row");
+    let skillRequirement = parseInt(rowParent.dataset.required);
+
+    if (isTopTree) {
+        if (topTreePoints < skillRequirement) {
+            isAllowed = false;
+        } else {
+            topTreePoints++;
+        }
+    }
+
+    if (!isTopTree) {
+
+        let id = parseInt(rowParent.dataset.id);
+        if (id === 1) {
+            if (topTreePoints < 15 || bottomTreeOnePoints < skillRequirement) {
+                isAllowed = false;
+            } else {
+                bottomTreeOnePoints++;
+            }
+        }
+
+        if (id === 2) {
+            if (topTreePoints < 15 || bottomTreeTwoPoints < skillRequirement) {
+                isAllowed = false;
+            } else {
+                bottomTreeTwoPoints++;
+            }
+        }
+
+        if (id === 3) {
+            if (topTreePoints < 15 || bottomTreeThreePoints < skillRequirement) {
+                isAllowed = false;
+            } else {
+                bottomTreeThreePoints++;
+            }
+        }
+
+    }
+
+    if (filled === max || currentSkillPoints === maxSkillPoints || !isAllowed) return;
 
     skill.filled++;
     childElement.textContent = skill.filled;

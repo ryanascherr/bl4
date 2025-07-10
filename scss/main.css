@@ -32,7 +32,7 @@ body {
 }
 .skill-tree__row {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   margin-top: 1rem;
   margin-bottom: 1rem;
@@ -46,6 +46,7 @@ body {
 .skill-tree__skill, .skill-tree__augment, .skill-tree__capstone {
   width: 50px;
   height: 50px;
+  margin: 1rem;
   border: 1px solid gray;
   background-image: url(../img/icon-bg.webp);
   background-position: center;
@@ -58,15 +59,6 @@ body {
 }
 .skill-tree__skill:hover, .skill-tree__augment:hover, .skill-tree__capstone:hover {
   cursor: pointer;
-}
-.skill-tree__skill:before {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 0;
-  border-top: 15px solid white;
-  border-left: 15px solid black;
-  width: 0;
 }
 .skill-tree__augment {
   transform: rotate(45deg);

@@ -5,14 +5,21 @@
     font-family: sans-serif;
 }
 
+.d-none {
+    display: none;
+}
+
 body {
     padding: 3rem;
     background: #000;
     background: linear-gradient(180deg,rgba(0, 0, 0, 1) 0%, rgba(0, 58, 71, 1) 100%);
-    margin-bottom: 100px;
+    margin-bottom: 500px;
 }
 
 .skill-tree {
+
+    max-width: 1200px;
+    margin: 0 auto;
 
     &__bottom {
         display: flex;
@@ -50,14 +57,16 @@ body {
     &__skill,
     &__augment,
     &__capstone {
+        display: flex;
+        align-items: center;
+        justify-content: center;
         width: 50px;
         height: 50px;
         margin: 1rem;
-        border: 1px solid gray;
-        background-image: url(../img/icon-bg.webp);
-        background-position: center;
-        background-size: cover;
-        background-repeat: no-repeat;
+        // background-image: url(../img/icon-bg.webp);
+        // background-position: center;
+        // background-size: cover;
+        // background-repeat: no-repeat;
         position: relative;
 
         &--blank {
@@ -69,30 +78,30 @@ body {
         }
     }
     &__skill {
-        // &:before {
-        //     content: '';
-        //     position: absolute;
-        //     top: 0;
-        //     right: 0;
-        //     border-top: 15px solid white;
-        //     border-left: 15px solid black;
-        //     width: 0;
-        // }
+        padding: .5rem .5rem .75rem .5rem;
+        border: 1px solid gray;
+
+        img {
+            max-width: 100%;
+            width: 100%;
+        }
     }
     &__augment {
         transform: rotate(45deg);
 
         img {
             transform: rotate(-45deg);
-            border-radius: 50%;
+            width: 140%;
         }
     }
     &__capstone {
-        background-image: url(../img/capstone-bg.webp);
+        // background-image: url(../img/capstone-bg.webp);
+
+        img {
+            width: 120%;
+        }
     }
     &__skill-img {
-        max-width: 100%;
-        width: 100%;
 
         &--colored {
             mix-blend-mode: screen;
@@ -117,6 +126,12 @@ body {
     border: 1px solid lightblue;
     color: white;
     visibility: hidden;
+
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 800px;
 
     &__type {
         margin-top: .25rem;

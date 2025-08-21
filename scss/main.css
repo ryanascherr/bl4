@@ -5,13 +5,21 @@
   font-family: sans-serif;
 }
 
+.d-none {
+  display: none;
+}
+
 body {
   padding: 3rem;
   background: #000;
   background: linear-gradient(180deg, rgb(0, 0, 0) 0%, rgb(0, 58, 71) 100%);
-  margin-bottom: 100px;
+  margin-bottom: 500px;
 }
 
+.skill-tree {
+  max-width: 1200px;
+  margin: 0 auto;
+}
 .skill-tree__bottom {
   display: flex;
   flex-wrap: nowrap;
@@ -44,14 +52,12 @@ body {
   justify-content: flex-end;
 }
 .skill-tree__skill, .skill-tree__augment, .skill-tree__capstone {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 50px;
   height: 50px;
   margin: 1rem;
-  border: 1px solid gray;
-  background-image: url(../img/icon-bg.webp);
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
   position: relative;
 }
 .skill-tree__skill--blank, .skill-tree__augment--blank, .skill-tree__capstone--blank {
@@ -60,19 +66,23 @@ body {
 .skill-tree__skill:hover, .skill-tree__augment:hover, .skill-tree__capstone:hover {
   cursor: pointer;
 }
+.skill-tree__skill {
+  padding: 0.5rem 0.5rem 0.75rem 0.5rem;
+  border: 1px solid gray;
+}
+.skill-tree__skill img {
+  max-width: 100%;
+  width: 100%;
+}
 .skill-tree__augment {
   transform: rotate(45deg);
 }
 .skill-tree__augment img {
   transform: rotate(-45deg);
-  border-radius: 50%;
+  width: 140%;
 }
-.skill-tree__capstone {
-  background-image: url(../img/capstone-bg.webp);
-}
-.skill-tree__skill-img {
-  max-width: 100%;
-  width: 100%;
+.skill-tree__capstone img {
+  width: 120%;
 }
 .skill-tree__skill-img--colored {
   mix-blend-mode: screen;
@@ -95,6 +105,11 @@ body {
   border: 1px solid lightblue;
   color: white;
   visibility: hidden;
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 800px;
 }
 .skill-box__type {
   margin-top: 0.25rem;

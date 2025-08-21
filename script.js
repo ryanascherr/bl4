@@ -1,4 +1,5 @@
 let rafaSkills = [
+    // GREEN TREE START
     {
         name: "Handshake Deal",
         type: "Passive",
@@ -261,6 +262,149 @@ let rafaSkills = [
         text: "<span class='keyword keyword--orange'>Rafa</span> gains increased <span class='keyword keyword--blue'>Skill Damage</span> with all Skills. The longer his <span class='keyword keyword--blue'>Action Skill</span> has been active, the <span class='keyword keyword--blue'>greater</span> the bonus.",
         bonusName: "Skill Damage",
         bonusNumber: "<span class='keyword keyword--green'>+2%</span> per second"
+    },
+    // GREEN TREE END
+    // BLUE TREE START
+    {
+        name: "Rinse",
+        type: "Passive",
+        filled: 0,
+        max: 5,
+        text: "<span class='keyword keyword--orange'>Rafa</span> gains increased <span class='keyword keyword--blue'>Reload Speed</span>.",
+        bonusName: "Reload Speed",
+        bonusNumber: "<span class='keyword keyword--green'>+4%</span>"
+    },
+    {
+        name: "Las Jaras",
+        type: "Passive",
+        filled: 0,
+        max: 5,
+        text: "<span class='keyword keyword--orange'>Overdrive Skill</span>. <span class='keyword keyword--orange'>Rafa</span> <span class='keyword keyword--blue'>Regenerates Ammo</span> while <span class='keyword keyword--orange'>Overdrive</span> is active.",
+        bonusName: "Ammo Regeneration",
+        bonusNumber: "<span class='keyword keyword--green'>+0.5%</span>"
+    },
+    {
+        name: "The Thrill",
+        type: "Passive",
+        filled: 0,
+        max: 5,
+        text: "<span class='keyword keyword--orange'>Overdrive Skill</span>. <span class='keyword keyword--orange'>Rafa</span> gains increased <span class='keyword keyword--blue'>Fire Rate</span>. Gain further increased <span class='keyword keyword--blue'>Fire Rate</span> while <span class='keyword keyword--orange'>Overdrive</span> is active."
+    },
+    {
+        name: "Preparado",
+        type: "Passive",
+        filled: 0,
+        max: 5,
+        text: "Whenever <span class='keyword keyword--orange'>Rafa</span> <span class='keyword keyword--blue'>Reloads</span> his current <span class='keyword keyword--blue'>Gun</span>, he gains increased <span class='keyword keyword--blue'>Action Skill Cooldown Rate</span>. This effect stacks."
+    },
+    {
+        name: "Sangre por Sangre",
+        type: "Augment",
+        text: "Whenever <span class='keyword keyword--orange'>Rafa</span> consumes a <span class='keyword keyword--orange'>Charge</span>, he gains increased <span class='keyword keyword--blue'>Action Skill Cooldown Rate</span>. This bonus is increased for every <span class='keyword keyword--orange'>Charge</span> consumed.",
+    },
+    {
+        name: "Pa' Dentro",
+        type: "Passive",
+        filled: 0,
+        max: 5,
+        text: "Activating an <span class='keyword keyword--blue'>Action Skill</span> grants <span class='keyword keyword--orange'>Rafa</span> <span class='keyword keyword--blue'>Health Regeneration</span>.",
+    },
+    {
+        name: "Battery Subscription Service",
+        type: "Augment",
+        text: "<span class='keyword keyword--orange'>Apophis Lance</span> gains an <span class='keyword keyword--blue'>Additional Charge</span>.<br><br>Addtionally, whenever <span class='keyword keyword--orange'>Rafa</span> consumes 4 or more <span class='keyword keyword--blue'>Charges</span>, gain increased <span class='keyword keyword--blue'>Action Skill Potency</span>.",
+        bonusName: "",
+        bonusNumber: ""
+    },
+    {
+        name: "Arriba",
+        type: "Passive",
+        filled: 0,
+        max: 5,
+        text: "<span class='keyword keyword--blue'>Kill Skill</span>. Whenever <span class='keyword keyword--orange'>Rafa</span> kills an enemy, he gains increased <span class='keyword keyword--blue'>Ordnance Cooldown Rate</span>.",
+        bonusName: "",
+        bonusNumber: ""
+    },
+    {
+        name: "First Impression",
+        type: "Passive",
+        filled: 0,
+        max: 5,
+        text: "The first shot fired from a fully loaded <span class='keyword keyword--blue'>Weapon Magazine</span> gains <span class='keyword keyword--blue'>Increased Damage</span>.",
+        bonusName: "Gun Damage",
+        bonusNumber: "<span class='keyword keyword--green'>+8%</span>"
+    },
+    {
+        name: "Al Centro",
+        type: "Passive",
+        filled: 0,
+        max: 5,
+        text: "<span class='keyword keyword--orange'>Overdrive Skill</span>. <span class='keyword keyword--orange'>Rafa</span> gains increased <span class='keyword keyword--blue'>Weapon Handling</span> with all <span class='keyword keyword--blue'>Weapons</span> and <span class='keyword keyword--blue'>Action Skills</span> while <span class='keyword keyword--orange'>Overdrive</span> is active. The longer <span class='keyword keyword--orange'>Overdrive</span> has been active, the <span class='keyword keyword--blue'>greater</span> the bonus.",
+        bonusName: "Weapon Handling",
+        bonusNumber: "<span class='keyword keyword--green'>+1%</span> per second"
+    },
+    {
+        name: "Metal Management",
+        type: "Passive",
+        filled: 0,
+        max: 1,
+        text: "Whenever <span class='keyword keyword--orange'>Rafa</span> activates or retriggers an <span class='keyword keyword--blue'>Action Skill</span>, his <span class='keyword keyword--blue'>Gun</span> consumes no <span class='keyword keyword--blue'>Ammo</span>.",
+        bonusName: "Duration",
+        bonusNumber: "<span class='keyword keyword--green'>2</span> seconds"
+    },
+    {
+        name: "",
+        type: "",
+        filled: 0,
+        max: 5,
+        text: "",
+        bonusName: "",
+        bonusNumber: ""
+    },
+    {
+        name: "",
+        type: "",
+        filled: 0,
+        max: 5,
+        text: "",
+        bonusName: "",
+        bonusNumber: ""
+    },
+    {
+        name: "",
+        type: "",
+        filled: 0,
+        max: 5,
+        text: "",
+        bonusName: "",
+        bonusNumber: ""
+    },
+    {
+        name: "",
+        type: "",
+        filled: 0,
+        max: 5,
+        text: "",
+        bonusName: "",
+        bonusNumber: ""
+    },
+    {
+        name: "",
+        type: "",
+        filled: 0,
+        max: 5,
+        text: "",
+        bonusName: "",
+        bonusNumber: ""
+    },
+    {
+        name: "",
+        type: "",
+        filled: 0,
+        max: 5,
+        text: "",
+        bonusName: "",
+        bonusNumber: ""
     }
 ]
 
@@ -324,7 +468,7 @@ skills.forEach((skill, index) => {
             let skill = rafaSkills[i];
 
             if (skill.name === skillName) {
-                displayToolTip(skill);
+                displayToolTip(skill, e);
             }
         }
     });
@@ -371,7 +515,7 @@ skills.forEach((skill, index) => {
     });
 });
 
-function displayToolTip(skill) {
+function displayToolTip(skill, e) {
 
     document.querySelector(".skill-box__name").innerHTML = skill.name;
     document.querySelector(".skill-box__type").innerHTML = skill.type;
@@ -401,7 +545,10 @@ function displayToolTip(skill) {
         document.querySelector(".skill-box__flavor-text").style.display = "none";
     }
 
+    let bottomOfSkill = e.target.getBoundingClientRect().bottom;
+    document.querySelector(".skill-box").style.top = bottomOfSkill + "px";
     document.querySelector(".skill-box").style.visibility = "visible";
+
 }
 
 function hideToolTip() {

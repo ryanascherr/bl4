@@ -353,22 +353,22 @@ let rafaSkills = [
         bonusNumber: "<span class='keyword keyword--green'>2</span> seconds"
     },
     {
-        name: "",
-        type: "",
+        name: "Abajo",
+        type: "Passive",
         filled: 0,
         max: 5,
-        text: "",
+        text: "Whenever <span class='keyword keyword--orange'>Rafa</span> throws a <span class='keyword keyword--blue'>Grenade</span>, he gains increased <span class='keyword keyword--blue'>Action Skill Cooldown Rate</span>.",
         bonusName: "",
         bonusNumber: ""
     },
     {
-        name: "",
-        type: "",
+        name: "Brain Dump",
+        type: "Passive",
         filled: 0,
         max: 5,
-        text: "",
-        bonusName: "",
-        bonusNumber: ""
+        text: "<span class='keyword keyword--orange'>Overdrive Skill</span>. <span class='keyword keyword--orange'>Rafa</span> gains <span class='keyword keyword--blue'>Critical Hit Chance</span> with his guns while <span class='keyword keyword--orange'>Overdrive</span> is active.",
+        bonusName: "Critical Hit Chance",
+        bonusNumber: "<span class='keyword keyword--green'>+5%</span>"
     },
     {
         name: "",

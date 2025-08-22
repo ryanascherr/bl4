@@ -6,6 +6,24 @@ let rafaSkills = [
         filled: 0,
         max: 5,
         text: "<span class='keyword keyword--orange'>Rafa</span> gains increased <span class='keyword keyword--blue'>Gun Damage</span> and <span class='keyword keyword--blue'>Melee Damage</span>.",
+        bonuses: [
+            {
+                attribute: "Gun Damage",
+                bonus: [3, 6, 9, 12, 15],
+                type: "%",
+                increment: 3,
+                before: "+",
+                after: ""
+            },
+            {
+                attribute: "Melee Damage",
+                bonus: [7, 14, 21, 28, 35],
+                type: "%",
+                increment: 7,
+                before: "+",
+                after: ""
+            }
+        ]
     },
     {
         name: "Midnight Oil",
@@ -13,8 +31,16 @@ let rafaSkills = [
         filled: 0,
         max: 5,
         text: "<span class='keyword keyword--orange'>Rafa's</span> Action Skills deal <span class='keyword keyword--green'>Bonus Corrosive Damage</span>. The longer the <span class='keyword keyword--blue'>Skill</span> has been active, the greater the <span class='keyword keyword--blue'>Bonus Damage</span>.",
-        bonusName: "Bonus Damage",
-        bonusNumber: "+2%",
+        bonuses: [
+            {
+                attribute: "Bonus Damage",
+                bonus: [2, 4, 6, 8, 10],
+                type: "%",
+                increment: 2,
+                before: "+",
+                after: " per second"
+            }
+        ],
     },
     {
         name: "Expedite",
@@ -22,8 +48,16 @@ let rafaSkills = [
         filled: 0,
         max: 5,
         text: "<span class='keyword keyword--orange'>Overdrive Skill</span>. <span class='keyword keyword--orange'>Overdrive</span> grants <span class='keyword keyword--orange'>Rafa</span> further increased <span class='keyword keyword--blue'>Move Speed</span>.",
-        bonusName: "Move Speed",
-        bonusNumber: "+5%",
+        bonuses: [
+            {
+                attribute: "Move Speed",
+                bonus: [5, 10, 15, 20, 25],
+                type: "%",
+                increment: 5,
+                before: "+",
+                after: ""
+            }
+        ],
     },
     {
         name: "Dial In",
@@ -31,8 +65,16 @@ let rafaSkills = [
         filled: 0,
         max: 5,
         text: "Whenever <span class='keyword keyword--orange'>Rafa</span> damages an enemy with a <span class='keyword keyword--blue'>Melee Attack</span>, his <span class='keyword keyword--blue'>Melee Attacks</span> gain <span class='keyword keyword--blue'>Critical Hit Chance</span>. This <span class='keyword keyword--blue'>Chance</span> stacks, and all Stacks are removed whenever <span class='keyword keyword--orange'>Rafa</span> <span class='keyword keyword--blue'>Critically Hits</span> an enemy.",
-        bonusName: "Critical Hit Chance",
-        bonusNumber: "3% per Stack"
+        bonuses: [
+            {
+                attribute: "Critical Hit Chance",
+                bonus: [3, 6, 9, 12, 15],
+                type: "%",
+                increment: 3,
+                before: "+",
+                after: " per stack"
+            }
+        ],
     },
     {
         name: "Altered Cabron",
@@ -45,7 +87,25 @@ let rafaSkills = [
         type: "Passive",
         filled: 0,
         max: 5,
-        text: "A portion of <span class='keyword keyword--orange'>Rafa's</span> <span class='keyword keyword--blue'>Maximum Health Capacity</span> is converted into <span class='keyword keyword--blue'>Maximum Shield Capacity</span>."
+        text: "A portion of <span class='keyword keyword--orange'>Rafa's</span> <span class='keyword keyword--blue'>Maximum Health Capacity</span> is converted into <span class='keyword keyword--blue'>Maximum Shield Capacity</span>.",
+        bonuses: [
+            {
+                attribute: "Maximum Health Capacity",
+                bonus: [10, 20, 30, 40, 50],
+                type: "%",
+                increment: 10,
+                before: "+",
+                after: ""
+            },
+            {
+                attribute: "Maximuk Shield Capacity",
+                bonus: [12, 24, 36, 48, 60],
+                type: "%",
+                increment: 12,
+                before: "+",
+                after: ""
+            }
+        ]
     },
     {
         name: "Dead Man Walking",
@@ -59,7 +119,26 @@ let rafaSkills = [
         type: "Passive",
         filled: 0,
         max: 5,
-        text: "Dealing <span class='keyword keyword--blue'>Melee Damage</span> grants <span class='keyword keyword--orange'>Rafa</span> a stack of <span class='keyword keyword--orange'>Diamond Hands</span>. Gain increased <span class='keyword keyword--blue'>Gun Damage</span> for every Stack of <span class='keyword keyword--orange'>Diamond Hands</span>.<br><br>Once <span class='keyword keyword--orange'>Rafa</span> deals <span class='keyword keyword--blue'>Gun Damage</span>, Stacks begin to decay quickly until they run out."
+        text: "Dealing <span class='keyword keyword--blue'>Melee Damage</span> grants <span class='keyword keyword--orange'>Rafa</span> a stack of <span class='keyword keyword--orange'>Diamond Hands</span>. Gain increased <span class='keyword keyword--blue'>Gun Damage</span> for every Stack of <span class='keyword keyword--orange'>Diamond Hands</span>.<br><br>Once <span class='keyword keyword--orange'>Rafa</span> deals <span class='keyword keyword--blue'>Gun Damage</span>, Stacks begin to decay quickly until they run out.",
+        bonuses: [
+            {
+                attribute: "Gun Damage",
+                bonus: [2, 4, 6, 8, 10],
+                type: "%",
+                increment: 2,
+                before: "+",
+                after: " per stack"
+            },
+            {
+                attribute: "Max Stacks",
+                bonus: 100,
+                type: "",
+                increment: 2,
+                before: "",
+                after: "",
+                single: true
+            }
+        ]
     },
     {
         name: "Saldar",
@@ -477,7 +556,7 @@ skills.forEach((skill, index) => {
         hideToolTip();
     });
 
-    skill.addEventListener('click', function() {
+    skill.addEventListener('click', function(e) {
         let clickedElement = this;
         let childElement = clickedElement.getElementsByClassName('skill-tree__number');
         childElement = childElement[0];
@@ -488,7 +567,7 @@ skills.forEach((skill, index) => {
             let skill = rafaSkills[i];
 
             if (skill.name === skillName) {
-                addSkillPoint(skill, childElement);
+                addSkillPoint(skill, childElement, e);
             }
         }
 
@@ -507,7 +586,7 @@ skills.forEach((skill, index) => {
             let skill = rafaSkills[i];
 
             if (skill.name === skillName) {
-                subtractSkillPoint(skill, childElement);
+                subtractSkillPoint(skill, childElement, e);
             }
         }
 
@@ -530,13 +609,32 @@ function displayToolTip(skill, e) {
 
     document.querySelector(".skill-box__text").innerHTML = skill.text;
 
-    if (skill.bonusName && skill.bonusNumber) {
-        document.querySelector(".skill-box__bonus-box").style.display = "block";
-        document.querySelector(".skill-box__bonus-name").innerHTML = skill.bonusName;
-        document.querySelector(".skill-box__bonus-number").innerHTML = skill.bonusNumber;
-    } else {
-        document.querySelector(".skill-box__bonus-box").style.display = "none";
+    if (skill.bonuses) {
+        let html = "";
+        skill.bonuses.forEach(function(bonus, index) {
+            if (bonus.single === true) {
+                html += "<div><span class='keyword keyword--blue'>" + bonus.attribute + ":</span> " + bonus.before + bonus.bonus + bonus.after + "</div>";
+            } else {
+                if (skill.filled === 0) {
+                    html += "<div><span class='keyword keyword--blue'>" + bonus.attribute + ":</span> <span class='keyword keyword--green'>" + bonus.before + bonus.bonus[0] + bonus.type + "</span>" + bonus.after + "</div>";
+                } else if (skill.filled !== skill.max) {
+                    html += "<div><span class='keyword keyword--blue'>" + bonus.attribute + ":</span> " + bonus.before + bonus.bonus[skill.filled - 1] + bonus.type + " <span class='keyword keyword--green'>" + bonus.before + bonus.increment + bonus.type + "</span>" + bonus.after + "</div>";
+                } else {
+                    html += "<div><span class='keyword keyword--blue'>" + bonus.attribute + ":</span> " + bonus.before + bonus.bonus[skill.filled - 1] + bonus.type + bonus.after + "</div>";
+                }
+            }
+        });
+
+        document.querySelector(".skill-box__bonus-box").innerHTML = html;
     }
+
+    // if (skill.bonusName && skill.bonusNumber) {
+    //     document.querySelector(".skill-box__bonus-box").style.display = "block";
+    //     document.querySelector(".skill-box__bonus-name").innerHTML = skill.bonusName;
+    //     document.querySelector(".skill-box__bonus-number").innerHTML = skill.bonusNumber;
+    // } else {
+    //     document.querySelector(".skill-box__bonus-box").style.display = "none";
+    // }
 
     if (skill.flavorText) {
         document.querySelector(".skill-box__flavor-text").style.display = "block";
@@ -572,7 +670,7 @@ function updateSkillPoints(skill, childElement, number) {
     }
 }
 
-function addSkillPoint(skill, childElement) {
+function addSkillPoint(skill, childElement, e) {
     let filled = skill.filled;
     let max = skill.max;
     let isAllowed = true;
@@ -600,13 +698,13 @@ function addSkillPoint(skill, childElement) {
 
     skill.filled++;
     childElement.textContent = skill.filled;
-    displayToolTip(skill);
+    displayToolTip(skill, e);
     currentSkillPoints++;
     displaySkillPoints();
     updateGradient(section);
 }
 
-function subtractSkillPoint(skill, childElement) {
+function subtractSkillPoint(skill, childElement, e) {
     let filled = skill.filled;
 
     let section = childElement.closest(".skill-tree__section");
@@ -632,7 +730,7 @@ function subtractSkillPoint(skill, childElement) {
 
     skill.filled--;
     childElement.textContent = skill.filled;
-    displayToolTip(skill);
+    displayToolTip(skill, e);
     currentSkillPoints--;
     displaySkillPoints();
     updateGradient(section);

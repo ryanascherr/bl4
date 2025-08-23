@@ -12,7 +12,8 @@ let rafaSkills = [
                 bonus: [3, 6, 9, 12, 15],
                 type: "%",
                 increment: 3,
-                before: "+",
+                modifier: "+",
+                before: "",
                 after: ""
             },
             {
@@ -20,7 +21,8 @@ let rafaSkills = [
                 bonus: [7, 14, 21, 28, 35],
                 type: "%",
                 increment: 7,
-                before: "+",
+                modifier: "+",
+                before: "",
                 after: ""
             }
         ]
@@ -37,7 +39,8 @@ let rafaSkills = [
                 bonus: [2, 4, 6, 8, 10],
                 type: "%",
                 increment: 2,
-                before: "+",
+                modifier: "+",
+                before: "",
                 after: " per second"
             }
         ],
@@ -54,7 +57,8 @@ let rafaSkills = [
                 bonus: [5, 10, 15, 20, 25],
                 type: "%",
                 increment: 5,
-                before: "+",
+                modifier: "+",
+                before: "",
                 after: ""
             }
         ],
@@ -71,7 +75,8 @@ let rafaSkills = [
                 bonus: [3, 6, 9, 12, 15],
                 type: "%",
                 increment: 3,
-                before: "+",
+                modifier: "+",
+                before: "",
                 after: " per stack"
             }
         ],
@@ -80,7 +85,59 @@ let rafaSkills = [
         name: "Altered Cabron",
         type: "Augment",
         chosen: false,
-        text: "<span class='keyword keyword--orange'>Rafa</span> kills an enemy while <span class='keyword keyword--orange'>Arc-Knives</span> is active, restore a portion of his <span class='keyword keyword--blue'>Maximum Health Capacity</span>.<br><br>Whenever <span class='keyword keyword--orange'>Rafa</span> gains <span class='keyword keyword--blue'>Health</span>, deal <span class='keyword keyword--green'>Bonus Corrosive Damage</span> with all attacks, and gain increased <span class='keyword keyword--blue'>Movement Speed</span>. This effect stacks."
+        text: "<span class='keyword keyword--orange'>Rafa</span> kills an enemy while <span class='keyword keyword--orange'>Arc-Knives</span> is active, restore a portion of his <span class='keyword keyword--blue'>Maximum Health Capacity</span>.<br><br>Whenever <span class='keyword keyword--orange'>Rafa</span> gains <span class='keyword keyword--blue'>Health</span>, deal <span class='keyword keyword--green'>Bonus Corrosive Damage</span> with all attacks, and gain increased <span class='keyword keyword--blue'>Movement Speed</span>. This effect stacks.",
+        bonuses: [
+            {
+                attribute: "Bonus Corrosive Damage",
+                bonus: 15,
+                type: "%",
+                increment: "",
+                modifier: "+",
+                before: "",
+                after: "%",
+                single: true
+            },
+            {
+                attribute: "Move Speed",
+                bonus: 10,
+                type: "%",
+                increment: "",
+                modifier: "+",
+                before: "",
+                after: "%",
+                single: true
+            },
+            {
+                attribute: "Duration",
+                bonus: 16,
+                type: "",
+                increment: "",
+                modifier: "",
+                before: "",
+                after: " seconds",
+                single: true
+            },
+            {
+                attribute: "Health Restore",
+                bonus: 30,
+                type: "",
+                increment: "",
+                modifier: "",
+                before: "",
+                after: " on kill",
+                single: true
+            },
+            {
+                attribute: "Max Stacks",
+                bonus: 25,
+                type: "",
+                increment: "",
+                modifier: "",
+                before: "",
+                after: "",
+                single: true
+            }
+        ]
     },
     {
         name: "El Corazon",
@@ -94,15 +151,17 @@ let rafaSkills = [
                 bonus: [10, 20, 30, 40, 50],
                 type: "%",
                 increment: 10,
-                before: "+",
+                modifier: "+",
+                before: "",
                 after: ""
             },
             {
-                attribute: "Maximuk Shield Capacity",
+                attribute: "Maximum Shield Capacity",
                 bonus: [12, 24, 36, 48, 60],
                 type: "%",
                 increment: 12,
-                before: "+",
+                modifier: "+",
+                before: "",
                 after: ""
             }
         ]
@@ -126,14 +185,16 @@ let rafaSkills = [
                 bonus: [2, 4, 6, 8, 10],
                 type: "%",
                 increment: 2,
-                before: "+",
+                modifier: "+",
+                before: "",
                 after: " per stack"
             },
             {
                 attribute: "Max Stacks",
                 bonus: 100,
                 type: "",
-                increment: 2,
+                increment: "",
+                modifier: "",
                 before: "",
                 after: "",
                 single: true
@@ -146,8 +207,17 @@ let rafaSkills = [
         filled: 0,
         max: 5,
         text: "<span class='keyword keyword--orange'>Rafa's</span> <span class='keyword keyword--blue'>Melee Critical Hits</span> gain <span class='keyword keyword--blue'>Life Steal</span>.",
-        bonusName: "Melee Lifesteal",
-        bonusNumber: "+5%"
+        bonuses: [
+            {
+                attribute: "Melee Lifesteal",
+                bonus: [5, 10, 15, 20, 25],
+                type: "%",
+                increment: 5,
+                modifier: "+",
+                before: "",
+                after: ""
+            }
+        ],
     },
     {
         name: "In the Zone",
@@ -155,15 +225,44 @@ let rafaSkills = [
         filled: 0,
         max: 3,
         text: "<span class='keyword keyword--blue'>Kill Skill</span>. Killing an enemy <span class='keyword keyword--blue'>freezes</span> <span class='keyword keyword--orange'>Overdrive's Duration</span>.",
-        bonusName: "Duration",
-        bonusNumber: "+2 seconds"
+        bonuses: [
+            {
+                attribute: "Duration",
+                bonus: [2, 4, 6],
+                type: "",
+                increment: 2,
+                modifier: "+",
+                before: "",
+                after: " seconds"
+            }
+        ],
     },
     {
         name: "To the Last",
         type: "Passive",
         filled: 0,
         max: 5,
-        text: "<span class='keyword keyword--orange'>Rafa</span> gains increased <span class='keyword keyword--blue'>Gun Damage</span> and increased <span class='keyword keyword--blue'>Skill Damage</span>. The lower his <span class='keyword keyword--blue'>Health</span>, the greater the bonuses."
+        text: "<span class='keyword keyword--orange'>Rafa</span> gains increased <span class='keyword keyword--blue'>Gun Damage</span> and increased <span class='keyword keyword--blue'>Skill Damage</span>. The lower his <span class='keyword keyword--blue'>Health</span>, the greater the bonuses.",
+        bonuses: [
+            {
+                attribute: "Skill Damage",
+                bonus: [9, 18, 27, 36, 45],
+                type: "%",
+                modifier: "+",
+                increment: 9,
+                before: "Up to ",
+                after: ""
+            },
+            {
+                attribute: "Gun Damage",
+                bonus: [6, 12, 18, 24, 30],
+                increment: 6,
+                modifier: "+",
+                type: "%",
+                before: "Up to ",
+                after: ""
+            }
+        ]
     },
     {
         name: "Hard Sell",
@@ -172,26 +271,100 @@ let rafaSkills = [
         max: 5,
         text: "Whenever <span class='keyword keyword--orange'>Rafa's</span> <span class='keyword keyword--blue'>Shields</span> break, he instantly gains a portion of his <span class='keyword keyword--blue'>Shield Maximum Capacity</span> as <span class='keyword keyword--blue'>Overshield</span>. This <span class='keyword keyword--blue'>Skill</span> cannot be used again until <span class='keyword keyword--orange'>Rafa</span> activates his <span class='keyword keyword--blue'>Action Skill</span>.",
         bonusName: "Overshield",
-        bonusNumber: "<span class='keyword keyword--green'>+9%</span> of <span class='keyword keyword--blue'>Maximum Shield Capacity</span>"
+        bonusNumber: "<span class='keyword keyword--green'>+9%</span> of <span class='keyword keyword--blue'>Maximum Shield Capacity</span>",
+        bonuses: [
+            {
+                attribute: "Overshield",
+                bonus: [9, 18, 27, 36, 45],
+                type: "%",
+                increment: 9,
+                modifier: "+",
+                before: "",
+                after: " of <span class='keyword keyword--blue'>Maximum Shield Capacity</span>"
+            }
+        ],
     },
     {
         name: "Blowout",
         type: "Passive",
         filled: 0,
         max: 5,
-        text: "Whenever <span class='keyword keyword--orange'>Rafa</span> applies a <span class='keyword keyword--orange'>Heavy Arms Mark</span> or <span class='keyword keyword--blue'>Critically Hits</span> an enemy with his <span class='keyword keyword--orange'>Action Skill</span>, they explode in <span class='keyword keyword--green'>Corrosive Lobbed Projectiles</span>. The longer <span class='keyword keyword--orange'>Rafa's</span> <span class='keyword keyword--blue'>Action Skill</span> has been active, the more <span class='keyword keyword--green'>Corrosive Projectiles</span> are spawned."
+        text: "Whenever <span class='keyword keyword--orange'>Rafa</span> applies a <span class='keyword keyword--orange'>Heavy Arms Mark</span> or <span class='keyword keyword--blue'>Critically Hits</span> an enemy with his <span class='keyword keyword--orange'>Action Skill</span>, they explode in <span class='keyword keyword--green'>Corrosive Lobbed Projectiles</span>. The longer <span class='keyword keyword--orange'>Rafa's</span> <span class='keyword keyword--blue'>Action Skill</span> has been active, the more <span class='keyword keyword--green'>Corrosive Projectiles</span> are spawned.",
+        bonuses: [
+            {
+                attribute: "Projectile Damage",
+                bonus: [9, 18, 27, 36, 45],
+                type: "",
+                increment: 9,
+                modifier: "+",
+                before: "",
+                after: ""
+            },
+            {
+                attribute: "Max Projectiles",
+                bonus: 6,
+                type: "",
+                increment: "",
+                modifier: "",
+                before: "",
+                after: "",
+                single: true
+            },
+            {
+                attribute: "Cooldown",
+                bonus: "1 second",
+                type: "",
+                increment: "",
+                modifier: "",
+                before: "",
+                after: "",
+                single: true
+            }
+        ]
     },
     {
         name: "Thundercutter",
         type: "Augment",
-        text: "<span class='keyword keyword--orange'>Arc-Knives</span> attacks deal <span class='keyword keyword--dark-blue'>Shock Melee Splash Damage</span>. <span class='keyword keyword--orange'>Rafa</span> deals increased <span class='keyword keyword--blue'>Splash Damage</span>."
+        text: "<span class='keyword keyword--orange'>Arc-Knives</span> attacks deal <span class='keyword keyword--dark-blue'>Shock Melee Splash Damage</span>. <span class='keyword keyword--orange'>Rafa</span> deals increased <span class='keyword keyword--blue'>Splash Damage</span>.",
+        bonuses: [
+            {
+                attribute: "Splash Damage",
+                bonus: 50,
+                type: "%",
+                increment: "",
+                modifier: "+",
+                before: "",
+                after: "%",
+                single: true
+            }
+        ],
     },
     {
         name: "El Paraguas",
         type: "Passive",
         filled: 0,
         max: 5,
-        text: "<span class='keyword keyword--orange'>Rafa</span> gains increased <span class='keyword keyword--blue'>Splash Damage</span> and increased <span class='keyword keyword--blue'>Splash Damage Critical Hit Chance</span>."
+        text: "<span class='keyword keyword--orange'>Rafa</span> gains increased <span class='keyword keyword--blue'>Splash Damage</span> and increased <span class='keyword keyword--blue'>Splash Damage Critical Hit Chance</span>.",
+        bonuses: [
+            {
+                attribute: "Splash Damage",
+                bonus: [7, 14, 21, 28, 35],
+                type: "%",
+                increment: 7,
+                modifier: "+",
+                before: "",
+                after: ""
+            },
+            {
+                attribute: "Critical Hit Chance",
+                bonus: [3, 6, 9, 12, 15],
+                type: "%",
+                increment: 3,
+                modifier: "+",
+                before: "",
+                after: ""
+            }
+        ]
     },
     {
         name: "Protecto-Pulse",
@@ -199,8 +372,17 @@ let rafaSkills = [
         filled: 0,
         max: 5,
         text: "Pressing M2 while <span class='keyword keyword--orange'>Arc-Knives</span> are active or <span class='keyword keyword--orange'>Rafa</span> retriggers his <span class='keyword keyword--blue'>Action Skill</span> drains a portion of <span class='keyword keyword--orange'>Rafa's</span> <span class='keyword keyword--blue'>Shields</span>, and deals that much <span class='keyword keyword--dark-blue'>Shock Damage</span> to nearby enemies.",
-        bonusName: "Shields Drained",
-        bonusNumber: "up to <span class='keyword keyword--green'>+20%</span> of Max <span class='keyword keyword--blue'>Shields</span>"
+        bonuses: [
+            {
+                attribute: "Shields Drained",
+                bonus: [20, 40, 60, 80, 100],
+                type: "%",
+                increment: 20,
+                modifier: "+",
+                before: "up to ",
+                after: " of Max <span class='keyword keyword--blue'>Shields</span>"
+            }
+        ],
     },
     {
         name: "Shock Market",
@@ -208,8 +390,17 @@ let rafaSkills = [
         filled: 0,
         max: 5,
         text: "Whenever <span class='keyword keyword--orange'>Rafa</span> deals <span class='keyword keyword--blue'>Splash Damage</span>, deal <span class='keyword keyword--dark-blue'>Bonus Shock Damage</span> based on the <span class='keyword keyword--blue'>Damage Dealt</span>.",
-        bonusName: "Bonus Damage",
-        bonusNumber: "<span class='keyword keyword--green'>+10%</span> of Damage Dealt"
+        bonuses: [
+            {
+                attribute: "Bonus Damage",
+                bonus: [10, 20, 30, 40, 50],
+                type: "%",
+                increment: 10,
+                modifier: "+",
+                before: "",
+                after: " of Damage Dealt"
+            }
+        ],
     },
     {
         name: "Liquidation",
@@ -222,8 +413,18 @@ let rafaSkills = [
         name: "Huracan Especial",
         type: "Capstone",
         text: "Activating <span class='keyword keyword--orange'>Blade Fury</span> causes <span class='keyword keyword--orange'>Rafa</span> to spin his blades, creating a <span class='keyword keyword--blue'>Singularity</span> that draws in all <span class='keyword keyword--orange'>Marked</span> enemies and other nearby enemies while dealing continuous <span class='keyword keyword--dark-blue'>Shock Damage</span>. Whenever this attack kills an enemy, <span class='keyword keyword--orange'>Overdrive</span> grants increased <span class='keyword keyword--blue'>Action Skill Cooldown Rate</span>.",
-        bonusName: "Damage",
-        bonusNumber: "X per second"
+        bonuses: [
+            {
+                attribute: "Damage",
+                bonus: 111,
+                type: "",
+                increment: "",
+                modifier: "",
+                before: "",
+                after: " per second",
+                single: true
+            },
+        ]
     },
     {
         name: "Artilleria",
@@ -231,15 +432,34 @@ let rafaSkills = [
         filled: 0,
         max: 5,
         text: "<span class='keyword keyword--orange'>Rafa</span> gains increased <span class='keyword keyword--blue'>Ordnance Cooldown Rate</span>.",
-        bonusName: "Ordnance Cooldown Rate",
-        bonusNumber: "<span class='keyword keyword--green'>+11%</span>"
+        bonuses: [
+            {
+                attribute: "Ordnance Cooldown Rate",
+                bonus: [11, 22, 33, 44, 55],
+                type: "%",
+                increment: 11,
+                modifier: "+",
+                before: "",
+                after: ""
+            }
+        ]
     },
     {
         name: "Parting Gift",
         type: "Augment",
         text: "Whenever <span class='keyword keyword--orange'>Rafa</span> activates his <span class='keyword keyword--orange'>Dash Attack</span>, he leaves behind a <span class='keyword keyword--blue'>Grenade</span>. If he has a <span class='keyword keyword--blue'>Grenade</span> equipped, use that <span class='keyword keyword--blue'>Grenade</span> instead. Enemies damaged by these <span class='keyword keyword--blue'>Grenades</span> become <span class='keyword keyword--orange'>Marked</span><br><br>Whenever <span class='keyword keyword--orange'>Rafa</span> applies a <span class='keyword keyword--orange'>Mark</span> to an enemy, apply an additional <span class='keyword keyword--orange'>Mark</span>.",
-        bonusName: "Default Grenade Damage",
-        bonusNumber: "X"
+        bonuses: [
+            {
+                attribute: "Default Grenade Damage",
+                bonus: 129,
+                type: "",
+                increment: "",
+                modifier: "",
+                before: "",
+                after: "",
+                single: true
+            },
+        ]
     },
     {
         name: "Collaborate Ignition",
@@ -247,22 +467,82 @@ let rafaSkills = [
         filled: 0,
         max: 5,
         text: "<span class='keyword keyword--orange'>Overdrive Skill</span>. <span class='keyword keyword--orange'>Rafa</span> deals <span class='keyword keyword--blue'>Bonus Damage</span> of his <span class='keyword keyword--blue'>Weapon's Element</span> with all <span class='keyword keyword--blue'>Skills</span> and <span class='keyword keyword--blue'>Ordnances</span> while <span class='keyword keyword--orange'>Overdrive</span> is active.",
-        bonusName: "Bonus Damage",
-        bonusNumber: "<span class='keyword keyword--green'>+12%</span> of Weapons Damage"
+        bonuses: [
+            {
+                attribute: "Bonus Damage",
+                bonus: [12, 24, 36, 48, 60],
+                type: "%",
+                increment: 12,
+                modifier: "+",
+                before: "",
+                after: " of Weapons Damage"
+            }
+        ]
     },
     {
         name: "Booming Business",
         type: "Passive",
         filled: 0,
         max: 5,
-        text: "Whenever <span class='keyword keyword--orange'>Rafa</span> <span class='keyword keyword--blue'>Critically Hits</span> an enemy, he gains a chance to spawn a <span class='keyword keyword--blue'>Free Grenade</span>. If <span class='keyword keyword--orange'>Rafa</span> has a <span class='keyword keyword--blue'>Grenade</span> equipped, spawn a <span class='keyword keyword--blue'>Grenade</span> based on that."
+        text: "Whenever <span class='keyword keyword--orange'>Rafa</span> <span class='keyword keyword--blue'>Critically Hits</span> an enemy, he gains a chance to spawn a <span class='keyword keyword--blue'>Free Grenade</span>. If <span class='keyword keyword--orange'>Rafa</span> has a <span class='keyword keyword--blue'>Grenade</span> equipped, spawn a <span class='keyword keyword--blue'>Grenade</span> based on that.",
+        bonuses: [
+            {
+                attribute: "Grenade Chance",
+                bonus: 50,
+                type: "%",
+                increment: "",
+                modifier: "+",
+                before: "",
+                after: "%",
+                single: true
+            },
+            {
+                attribute: "Cooldown Time",
+                bonus: [12, 11, 10, 9, 8],
+                type: "",
+                increment: -1,
+                modifier: "",
+                before: "",
+                after: " seconds"
+            }
+        ]
     },
     {
         name: "Sinergia",
         type: "Passive",
         filled: 0,
         max: 3,
-        text: "Whenever <span class='keyword keyword--orange'>Rafa</span> deals <span class='keyword keyword--blue'>Ordnance Damage</span>, he also deals increased <span class='keyword keyword--blue'>Gun Damage</span> and <span class='keyword keyword--blue'>Melee Damage</span>. This effect stacks."
+        text: "Whenever <span class='keyword keyword--orange'>Rafa</span> deals <span class='keyword keyword--blue'>Ordnance Damage</span>, he also deals increased <span class='keyword keyword--blue'>Gun Damage</span> and <span class='keyword keyword--blue'>Melee Damage</span>. This effect stacks.",
+        bonuses: [
+            {
+                attribute: "Gun Damage",
+                bonus: [2, 4, 6],
+                type: "%",
+                increment: 2,
+                modifier: "+",
+                before: "",
+                after: " per Stack",
+            },
+            {
+                attribute: "Melee Damage",
+                bonus: [4, 8, 12],
+                type: "%",
+                increment: 4,
+                modifier: "+",
+                before: "",
+                after: " per Stack",
+            },
+            {
+                attribute: "Duration",
+                bonus: 8,
+                type: "",
+                increment: "",
+                modifier: "",
+                before: "",
+                after: " seconds",
+                single: true
+            },
+        ]
     },
     {
         name: "Hemolitions",
@@ -270,13 +550,55 @@ let rafaSkills = [
         filled: 0,
         max: 1,
         text: "<span class='keyword keyword--orange'>Overdrive Skill</span>. While <span class='keyword keyword--orange'>Overdrive</span> is active, <span class='keyword keyword--orange'>Rafa</span> may use <span class='keyword keyword--orange'>Grenades</span> while cooling down - at the cost of <span class='keyword keyword--blue'>Health</span>. Every time a <span class='keyword keyword--blue'>Grenade</span> is used this way, it costs more <span class='keyword keyword--blue'>Health</span> until <span class='keyword keyword--orange'>Rafa's</span> <span class='keyword keyword--blue'>Grenade</span> fully cools down.",
-        bonusName: "Health Cost",
-        bonusNumber: "10% of current Health"
+        bonuses: [
+            {
+                attribute: "Health Cost",
+                bonus: 10,
+                type: "%",
+                increment: "",
+                modifier: "",
+                before: "",
+                after: "% of current Health",
+                single: true
+            },
+        ]
     },
     {
         name: "Inferno Protocol",
         type: "Capstone",
-        text: "While <span class='keyword keyword--orange'>Arc-Knives</span> are active, <span class='keyword keyword--orange'>Rafa's Exo-Suit</span> stores all <span class='keyword keyword--blue'>Damage Dealt</span> to him. The <span class='keyword keyword--orange'>Exo-Suit</span> then heats up and constantly deals a small amount of <span class='keyword keyword--red'>Fire Damage</span> to him. Additionally, <span class='keyword keyword--orange'>Rafa's</span> <span class='keyword keyword--blue'>Melee Attacks</span> deal <span class='keyword keyword--red'>Bonus Fire Damage</span>. A portion of all <span class='keyword keyword--blue'>Damage</span> dealt to <span class='keyword keyword--orange'>Rafa</span> is also dealt to enemies he has <span class='keyword keyword--orange'>Marked</span><br><br>Using <span class='keyword keyword--orange'>Blade Fury</span> causes <span class='keyword keyword--orange'>Rafa</span> to consume all stored <span class='keyword keyword--blue'>Damage</span>, and deals <span class='keyword keyword--red'>Bonus Fire Damage</span> based on stored <span class='keyword keyword--blue'>Damage</span>. A portion of all <span class='keyword keyword--blue'>Damage</span> dealt this way is returned to <span class='keyword keyword--orange'>Rafa</span> as <span class='keyword keyword--blue'>Health</span>."
+        text: "While <span class='keyword keyword--orange'>Arc-Knives</span> are active, <span class='keyword keyword--orange'>Rafa's Exo-Suit</span> stores all <span class='keyword keyword--blue'>Damage Dealt</span> to him. The <span class='keyword keyword--orange'>Exo-Suit</span> then heats up and constantly deals a small amount of <span class='keyword keyword--red'>Fire Damage</span> to him. Additionally, <span class='keyword keyword--orange'>Rafa's</span> <span class='keyword keyword--blue'>Melee Attacks</span> deal <span class='keyword keyword--red'>Bonus Fire Damage</span>. A portion of all <span class='keyword keyword--blue'>Damage</span> dealt to <span class='keyword keyword--orange'>Rafa</span> is also dealt to enemies he has <span class='keyword keyword--orange'>Marked</span><br><br>Using <span class='keyword keyword--orange'>Blade Fury</span> causes <span class='keyword keyword--orange'>Rafa</span> to consume all stored <span class='keyword keyword--blue'>Damage</span>, and deals <span class='keyword keyword--red'>Bonus Fire Damage</span> based on stored <span class='keyword keyword--blue'>Damage</span>. A portion of all <span class='keyword keyword--blue'>Damage</span> dealt this way is returned to <span class='keyword keyword--orange'>Rafa</span> as <span class='keyword keyword--blue'>Health</span>.",
+        bonuses: [
+            {
+                attribute: "Health Drain",
+                bonus: 6,
+                type: "",
+                increment: "",
+                modifier: "",
+                before: "",
+                after: " per second",
+                single: true
+            },
+            {
+                attribute: "Bonus Fire Damage",
+                bonus: 150,
+                type: "%",
+                increment: "",
+                modifier: "",
+                before: "Up to ",
+                after: "% of total Damage Taken",
+                single: true
+            },
+            {
+                attribute: "Marked Enemy Damage",
+                bonus: 20,
+                type: "%",
+                increment: "",
+                modifier: "",
+                before: "",
+                after: "% of Damage Taken",
+                single: true
+            },
+        ]
     },
     {
         name: "El Diablito",
@@ -285,7 +607,18 @@ let rafaSkills = [
         max: 5,
         text: "A portion of all <span class='keyword keyword--red'>Fire Damage</span> <span class='keyword keyword--orange'>Rafa</span> deals also deals <span class='keyword keyword--red'>Bonus Fire Ordnance Damage</span>.",
         bonusName: "Bonus Damage",
-        bonusNumber: "<span class='keyword keyword--green'>+10%</span> of Damage Dealt"
+        bonusNumber: "<span class='keyword keyword--green'>+10%</span> of Damage Dealt",
+        bonuses: [
+            {
+                attribute: "Bonus Damage",
+                bonus: [10, 20, 30, 40, 50],
+                type: "%",
+                increment: 10,
+                modifier: "+",
+                before: "",
+                after: " of Damage Dealt",
+            },
+        ]
     },
     {
         name: "El Borracho",
@@ -596,6 +929,9 @@ skills.forEach((skill, index) => {
 
 function displayToolTip(skill, e) {
 
+    document.querySelector(".skill-box__text").innerHTML = "";
+    document.querySelector(".skill-box__bonus-box").innerHTML = "";
+
     document.querySelector(".skill-box__name").innerHTML = skill.name;
     document.querySelector(".skill-box__type").innerHTML = skill.type;
 
@@ -613,14 +949,14 @@ function displayToolTip(skill, e) {
         let html = "";
         skill.bonuses.forEach(function(bonus, index) {
             if (bonus.single === true) {
-                html += "<div><span class='keyword keyword--blue'>" + bonus.attribute + ":</span> " + bonus.before + bonus.bonus + bonus.after + "</div>";
+                html += "<div><span class='keyword keyword--blue'>" + bonus.attribute + ":</span> " + bonus.modifier + bonus.bonus + bonus.after + "</div>";
             } else {
                 if (skill.filled === 0) {
-                    html += "<div><span class='keyword keyword--blue'>" + bonus.attribute + ":</span> <span class='keyword keyword--green'>" + bonus.before + bonus.bonus[0] + bonus.type + "</span>" + bonus.after + "</div>";
+                    html += "<div><span class='keyword keyword--blue'>" + bonus.attribute + ":</span> " + bonus.before + "<span class='keyword keyword--green'>" + bonus.modifier + bonus.bonus[0] + bonus.type + "</span>" + bonus.after + "</div>";
                 } else if (skill.filled !== skill.max) {
-                    html += "<div><span class='keyword keyword--blue'>" + bonus.attribute + ":</span> " + bonus.before + bonus.bonus[skill.filled - 1] + bonus.type + " <span class='keyword keyword--green'>" + bonus.before + bonus.increment + bonus.type + "</span>" + bonus.after + "</div>";
+                    html += "<div><span class='keyword keyword--blue'>" + bonus.attribute + ":</span> " + bonus.before + bonus.modifier + bonus.bonus[skill.filled - 1] + bonus.type + " <span class='keyword keyword--green'>" + bonus.modifier + bonus.increment + bonus.type + "</span>" + bonus.after + "</div>";
                 } else {
-                    html += "<div><span class='keyword keyword--blue'>" + bonus.attribute + ":</span> " + bonus.before + bonus.bonus[skill.filled - 1] + bonus.type + bonus.after + "</div>";
+                    html += "<div><span class='keyword keyword--blue'>" + bonus.attribute + ":</span> " + bonus.before + bonus.modifier + bonus.bonus[skill.filled - 1] + bonus.type + bonus.after + "</div>";
                 }
             }
         });
